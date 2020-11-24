@@ -1,0 +1,39 @@
+buildscript {
+    ext.kotlin_version = "1.4.10"
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "$kotlin_version"
+    id "application"
+}
+
+group "pl.alsol"
+version "1.0-SNAPSHOT"
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    implementation (
+            "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version",
+            "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1",
+    )
+
+    testImplementation(
+            "org.assertj:assertj-core:3.18.1",
+            "org.junit.jupiter:junit-jupiter-api:5.7.0",
+            "org.junit.jupiter:junit-jupiter-engine:5.7.0"
+    )
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClassName = 'pl.alsol.problem2.MainKt'
+}
